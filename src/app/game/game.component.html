@@ -2,5 +2,6 @@
   <div class="card_stack">
     <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0,1,2,3,4]; let i = index" 
     src="assets/cards/card_cover.png" alt="card stack" srcset="">
+    <img (click)="takeCard()" [class.pick_card]="pickCardAnimation" class="top_card" style="right: 25px" src="assets/cards/card_cover.png" alt="card stack" srcset="">
   </div>
 </main>
