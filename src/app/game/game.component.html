@@ -1,1 +1,6 @@
-<p>game works!</p>
+<main>
+  <div class="card_stack">
+    <img [ngStyle]="{'right.px': i * 5}" *ngFor="let c of [0,1,2,3,4]; let i = index" 
+    src="assets/cards/card_cover.png" alt="card stack" srcset="">
+  </div>
+</main>
