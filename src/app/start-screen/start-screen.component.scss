@@ -1,0 +1,32 @@
+main {
+  background-color: #404040;
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  > img {
+    height: 100vh;
+  }
+}
+
+.start_label_box{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  display: flex;
+  justify-content: center;
+
+  > img {
+    height: auto;
+    width: 40vw;
+
+    &:hover {
+      cursor: pointer;
+      filter: brightness(1.25);
+    }
+  }
+}
