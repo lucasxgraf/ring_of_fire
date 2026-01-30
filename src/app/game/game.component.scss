@@ -27,6 +27,11 @@ main {
     animation: pick-card-animation 1s ease-in-out;
     transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
   }
+  
+  .played_card {
+    transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+    right: 25px;
+  }
 
  @keyframes pick-card-animation {
   0% {
@@ -41,6 +46,7 @@ main {
   100% {
     transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
   }
- } 
+ }
+
 }
 

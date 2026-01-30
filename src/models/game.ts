@@ -3,13 +3,14 @@ export class Game {
   public stack:string[] = [];
   public playedCards:string[] = [];
   public currentPlayer:number = 0;
+  public currentCard: string | undefined = '';
   
   constructor() {
     for(let i = 1; i < 14; i++) {
-      this.stack.push('hearts-' + i);
-      this.stack.push('diamonds-' + i);
-      this.stack.push('clubs-' + i);
-      this.stack.push('spades-' + i);
+      this.stack.push('hearts_' + i);
+      this.stack.push('diamonds_' + i);
+      this.stack.push('clubs_' + i);
+      this.stack.push('spades_' + i);
     }
 
     shuffle(this.stack);
