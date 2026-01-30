@@ -2,8 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Game } from '../../models/game';
 import { PlayerComponent } from "../player/player.component";
+import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -11,8 +15,10 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, 
     PlayerComponent,
-    MatIconModule,
+    MatIconModule,  
     MatButtonModule,
+    MatDialogModule,
+    DialogAddPlayerComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
@@ -22,7 +28,7 @@ export class GameComponent {
   pickCardAnimation = false;
   game: Game = new Game();
 
-  constructor() {
+  constructor(public dialog: MatDialog,) {
   }
   
   ngOnInit(): void {
@@ -39,10 +45,20 @@ export class GameComponent {
       this.game.currentCard = this.game.stack.pop();
       console.log(this.game.currentCard);
       this.pickCardAnimation = true;
-    setTimeout(() => {
-      this.game.playedCards.push(this.game.currentCard!)
-      this.pickCardAnimation = false;
-    }, 1000);
+        setTimeout(() => {
+          this.game.playedCards.push(this.game.currentCard!)
+          this.pickCardAnimation = false;
+        }, 1000);
+    }
   }
-}
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogAddPlayerComponent);
+
+    dialogRef.afterClosed().subscribe(name => {
+      if (name && name.length > 0) {
+        this.game.players.push(name);
+      }
+    });
+  }
 }
