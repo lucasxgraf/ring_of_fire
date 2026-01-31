@@ -2,12 +2,12 @@
   width: 300px;
   display: flex;
   align-items: center;
-  background-color: grey;
+  background-color: rgba(147, 147, 147, 0.8);
   border-radius: 50px 0 0 50px;
   
   > img {
-    width: 100px;
-    height: 100px;
+    width: 72px;
+    height: 72px;
     object-fit: cover;
     border-radius: 100%;
   }
@@ -16,4 +16,8 @@
     font-size: 24px;
     margin-left: 16px;
   }
+}
+
+.player_active {
+  background-color: orange !important;
 }
