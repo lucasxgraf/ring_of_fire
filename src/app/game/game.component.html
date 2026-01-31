@@ -27,6 +27,6 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<app-game-instructions class="layout_instruction_card">
+<app-game-instructions [card]="game.currentCard || ''" class="layout_instruction_card">
 
 </app-game-instructions>

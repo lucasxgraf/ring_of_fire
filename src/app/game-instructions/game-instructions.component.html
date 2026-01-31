@@ -1,8 +1,10 @@
-<mat-card>
+<mat-card style="background-color: white">
   <mat-card-header>
-    <mat-card-title>Spielanleitung</mat-card-title>
+    <mat-card-title>{{ card ? title : 'Please pick a card' }}</mat-card-title>
   </mat-card-header>
-  <mat-card-content> Instructions... 
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati ratione repellendus magnam, voluptatum culpa temporibus corrupti? Eaque mollitia ea odio, dignissimos ab asperiores labore impedit ullam aliquam cum, beatae iste?
+  <mat-card-content>
+    <p>
+      {{ card ? description : 'Please click on the card stack to select the next card' }}
+    </p>
   </mat-card-content>
 </mat-card>
