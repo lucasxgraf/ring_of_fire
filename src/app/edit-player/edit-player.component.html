@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Edit player</h1>
+
+<div class="profile_picture_position">
+  @for (picture of allProfilePicture; track $index) {
+    <img [mat-dialog-close]="picture" class="profile_picture" src="assets/profiles/{{ picture }}" alt="">
+  }
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button color="warn" [mat-dialog-close]="'DELETE'">Delete player</button>
+</div>

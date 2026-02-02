@@ -1,0 +1,17 @@
+.profile_picture_position {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 8px;
+}
+
+.profile_picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.15);
+  }
+}

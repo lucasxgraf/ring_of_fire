@@ -52,6 +52,7 @@ main {
 .player_position {
   position: absolute;
   right: 0;
+  z-index: 10;
 }
 
 .add_btn {
@@ -65,4 +66,14 @@ main {
   left: 100px;
   right: 100px;
   bottom: 32px;
+}
+
+.game_over {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 300px;
+  }
 }

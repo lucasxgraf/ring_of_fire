@@ -4,29 +4,42 @@
 }
 
 <main>
-  <div class="card_stack">
-    @for (card of [0,1,2,3]; track $index) {
-      <img [ngStyle]="{'right.px': $index * 5}"
-      src="assets/cards/card_cover.png" alt="card stack" srcset="">
-    }
-    <img (click)="takeCard()" class="top_card" style="right: 25px" 
-    src="assets/cards/card_cover.png" alt="card stack" srcset="">
-    
-    @for (card of game.playedCards; track $index) {
-      <img src="./assets/cards/{{ card }}.png" class="played_card" alt="" srcset="">
-    }
-    
-   @if (pickCardAnimation) { 
-    <img (click)="takeCard()" class="pick_card" style="right: 25px" 
-    src="assets/cards/{{ game.currentCard }}.png" alt="card stack" srcset="">
-   }
-  </div>
-</main>
 
-<button matFab color="primary" class="add_btn" (click)="openDialog()">
-  <mat-icon>add</mat-icon>
-</button>
+  @if (gameOver) {
+    <div class="game_over">
+      <img src="assets/game_over.svg" alt="game over" srcset="">
+    </div>
+  }
 
-<app-game-instructions [card]="game.currentCard || ''" class="layout_instruction_card">
+  @if (!gameOver) {
+    <main>
+      <div>
+        @for (card of [0,1,2,3]; track $index) {
+          <img [ngStyle]="{'right.px': $index * 5}"
+          src="assets/cards/card_cover.png" alt="card stack" srcset="">
+        }
+        <img (click)="takeCard()" class="top_card" style="right: 25px" 
+        src="assets/cards/card_cover.png" alt="card stack" srcset="">
+        
+        @for (card of game.playedCards; track $index) {
+          <img src="assets/cards/{{ card }}.png" class="played_card" alt="" srcset="">
+        }
+        
+      @if (game.pickCardAnimation) { 
+        <img (click)="takeCard()" class="pick_card" style="right: 25px" 
+        src="assets/cards/{{ game.currentCard }}.png" alt="card stack" srcset="">
+      }
+      </div>
+    </main>
+  }
 
-</app-game-instructions>
+@if (!gameOver) {
+  <button matFab color="primary" class="add_btn" (click)="openDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+}
+
+@if (!gameOver) {
+  <app-game-instructions [card]="game.currentCard || ''" class="layout_instruction_card">
+  </app-game-instructions>
+}

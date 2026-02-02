@@ -1,9 +1,12 @@
 export class Game {
   public players:string[] = [];
+  public playerImages: string[] = [];
   public stack:string[] = [];
   public playedCards:string[] = [];
   public currentPlayer:number = 0;
   public currentCard: string | undefined = '';
+  public pickCardAnimation = false;
+
   
   constructor() {
     for(let i = 1; i < 14; i++) {
@@ -12,8 +15,19 @@ export class Game {
       this.stack.push('clubs_' + i);
       this.stack.push('spades_' + i);
     }
-
     shuffle(this.stack);
+  }
+
+  public toJson() {
+    return {
+      players: this.players || [],
+      playerImages: this.playerImages,
+      stack: this.stack || [],
+      playedCards: this.playedCards || [],
+      currentPlayer: this.currentPlayer || 0,
+      pickCardAnimation: this.pickCardAnimation,
+      currentCard: this.currentCard
+    };
   }
 }
 
