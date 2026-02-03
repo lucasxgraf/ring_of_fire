@@ -1,10 +1,16 @@
 @for (player of game.players; track $index) {
-  <app-player [ngStyle]="{'top.px': 100 + ($index * 90)}" [name]="player" [playerActive]="$index == game.currentPlayer" class="player_position">
+  <app-player [ngStyle]="{'top.px': 0 + ($index * 90)}" [name]="player" [playerActive]="$index == game.currentPlayer" [image]="game.playerImages[$index]" class="player_position hide_mobile">
   </app-player>
 }
 
-<main>
+<div class="scroll_container">
+  @for (player of game.players; track $index) {
+    <app-player-mobile [name]="player" [playerActive]="$index == game.currentPlayer" [image]="game.playerImages[$index]">
+    </app-player-mobile>
+  }
+</div>
 
+<main>
   @if (gameOver) {
     <div class="game_over">
       <img src="assets/game_over.svg" alt="game over" srcset="">

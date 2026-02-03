@@ -12,6 +12,7 @@ main {
     > img {
       position: absolute;
       width: 120px;
+      z-index: 10;
     }
   }
 
@@ -25,11 +26,11 @@ main {
 
   .pick_card{
     animation: pick-card-animation 1s ease-in-out;
-    transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+    transform: scale(1.25) translateX(115px) translateY(-180px) rotate(-10deg);
   }
   
   .played_card {
-    transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+    transform: scale(1.25) translateX(115px) translateY(-180px) rotate(-10deg);
     right: 25px;
   }
 
@@ -44,7 +45,7 @@ main {
     transform: scale(1.5);
   }
   100% {
-    transform: scale(1.25) translateX(140px) translateY(-180px) rotate(-10deg);
+    transform: scale(1.25) translateX(115px) translateY(-180px) rotate(-10deg);
   }
  }
 }
@@ -59,6 +60,11 @@ main {
   position: absolute;
   right: 24px;
   bottom: 32px;
+  z-index: 10;
+
+  @media (max-width: 720px) {
+    bottom: 150px;
+  }
 }
 
 .layout_instruction_card {
@@ -66,6 +72,12 @@ main {
   left: 100px;
   right: 100px;
   bottom: 32px;
+
+  @media (max-width: 720px) {
+    left:0;
+    right:0;
+    bottom:0;
+  }
 }
 
 .game_over {
@@ -75,5 +87,20 @@ main {
 
   img {
     width: 300px;
+  }
+}
+
+.scroll_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @media (min-width: 720px) {
+    display: none;
   }
 }

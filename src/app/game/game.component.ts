@@ -11,6 +11,7 @@ import { GameInstructionsComponent } from "../game-instructions/game-instruction
 import { GameService } from '../services/services.components';
 import { ActivatedRoute } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
+import { PlayerMobileComponent } from "../player-mobile/player-mobile.component";
 
 @Component({
   selector: 'app-game',
@@ -19,9 +20,9 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
     PlayerComponent,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule, 
-    GameInstructionsComponent,
-  ],
+    MatDialogModule,
+    GameInstructionsComponent, 
+    PlayerMobileComponent,],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
