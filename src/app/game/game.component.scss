@@ -86,7 +86,7 @@ main {
   align-items: center;
 
   img {
-    width: 300px;
+    width: 300px !important;
   }
 }
 
@@ -102,5 +102,14 @@ main {
 
   @media (min-width: 720px) {
     display: none;
+  }
+}
+
+app-player,
+app-player-mobile {
+  cursor: pointer;
+  
+  &:hover {
+    filter: brightness(1.1);
   }
 }

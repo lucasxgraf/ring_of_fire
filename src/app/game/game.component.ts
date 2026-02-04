@@ -100,6 +100,7 @@ export class GameComponent {
     dialogRef.afterClosed().subscribe(name => {
       if (name && name.length > 0) {
         this.game.players.push(name);
+        this.game.playerImages.push('1.webp');
         this.saveGame();
       }
     });
